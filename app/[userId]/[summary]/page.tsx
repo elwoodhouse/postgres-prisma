@@ -48,7 +48,7 @@ export default async function Page(props: { params: { userId: string; summary: s
           </table>
         </div>
         <div className="flex items-center justify-between space-x-4 max-w-xl mx-auto w-full py-4">
-          <Link href={`/${userId}`} className="">
+          <Link href={`/${userId}`}>
             <button className="bg-gray-900/10 py-2 px-4 text-black rounded-full">Dashboard</button>
           </Link>
           {isFormComplete && form.status !== formStatus.submitted && <SubmitFormButton userId={userId} formId={form.id} />}

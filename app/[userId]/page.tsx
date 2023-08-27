@@ -26,33 +26,41 @@ export default async function Page(props: { params: { userId: string } }) {
       </div>
       <div className="bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-xl mx-auto w-full">
         <div className="divide-y divide-gray-900/5">
-          <table className="w-full">
-            <thead className="border-b-2 border-gray-900/10">
-              <tr>
-                <th>Form ID</th>
-                <th>Status</th>
-              </tr>
-              {/* <th></th> */}
-            </thead>
-            <tbody>
-              {user &&
-                user.forms.map(form => (
+          {user && user.forms.length > 0 && (
+            <table className="w-full">
+              <thead className="border-b-2 border-gray-900/10">
+                <tr>
+                  <th className="w-1/3">Form ID</th>
+                  <th className="w-1/3">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {user.forms.map(form => (
                   <tr key={form.id}>
-                    <td className="divide-y divide-gray-900/5 py-2">{form.id}</td>
-                    <td className="divide-y divide-gray-900/5 py-2">{form.status}</td>
-                    <td className="divide-y divide-gray-900/5 py-2">
+                    <td className="border-b-2 border-gray-900/5 py-2 w-1/3">{form.id}</td>
+                    <td className="border-b-2 border-gray-900/5 py-2 w-1/3">{form.status}</td>
+                    <td className="border-b-2 border-gray-900/5 py-2 w-1/3 text-end">
                       {form.status === formStatus.in_progress && (
-                        <Link href={`/${userId}/${form.id}/form1`} className="">
-                          <button className="bg-sky-500 py-2 px-4 text-white rounded-full">Resume</button>
+                        <Link href={`/${userId}/${form.id}/form1`}>
+                          <button className="bg-sky-500 py-1 px-3 text-white rounded-full">Resume</button>
+                        </Link>
+                      )}
+                      {form.status === formStatus.submitted && (
+                        <Link href={`/${userId}/${form.id}`}>
+                          <button className="bg-gray-900/10 py-1 px-3 text-black rounded-full">Review</button>
                         </Link>
                       )}
                     </td>
                   </tr>
                 ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          )}
         </div>
-        <div className="flex items-center justify-end space-x-4 max-w-xl mx-auto w-full py-4">
+        <div className="flex items-center justify-between space-x-4 max-w-xl mx-auto w-full py-4">
+          <Link href="/">
+            <button className="bg-gray-900/10 py-2 px-4 text-black rounded-full">Log out</button>
+          </Link>
           <NewFormButton userId={userId} />
         </div>
       </div>
