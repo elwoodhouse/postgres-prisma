@@ -17,4 +17,15 @@ model users {
   email     String   @unique
   image     String
   createdAt DateTime @default(now())
+  forms     forms[]
+}
+
+model forms {
+  id                Int      @id @default(autoincrement())
+  user              users    @relation(fields: [userId], references: [id])
+  userId            Int
+  residency_type    String?
+  residency_date    DateTime @default(now())
+  residency_address String?
+  status            String   @default("In Progress")
 }
