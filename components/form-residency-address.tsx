@@ -1,6 +1,6 @@
 "use client";
-
-import { form } from "@/lib/utils";
+import Link from "next/link";
+import { form, formStatus } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -51,10 +51,15 @@ export default function FormResidencyAddress(props: { userId: number; form: form
           className="p-2 border-2 border-solid border-black"
         />
       </div>
-      <div className="flex items-center justify-end space-x-4 max-w-xl mx-auto w-full py-4">
-        <button className="bg-sky-500 py-2 px-4 text-white rounded-full" type="submit">
-          Review
-        </button>
+      <div className="flex items-center justify-between space-x-4 max-w-xl mx-auto w-full py-4">
+        <Link href={`/${userId}`}>
+          <button className="bg-gray-900/10 py-2 px-4 text-black rounded-full">Cancel</button>
+        </Link>
+        {form.status === formStatus.in_progress && (
+          <button className="bg-sky-500 py-2 px-4 text-white rounded-full" type="submit">
+            Review
+          </button>
+        )}
       </div>
     </form>
   );

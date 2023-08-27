@@ -1,3 +1,4 @@
+import NavBar from "@/components/nav-bar";
 import SubmitFormButton from "@/components/submit-form-button";
 import prisma from "@/lib/prisma";
 import { formQuestions, formStatus } from "@/lib/utils";
@@ -14,6 +15,7 @@ export default async function Page(props: { params: { userId: string; summary: s
   const isFormComplete = form?.residency_type && form?.residency_date && form.residency_address;
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
+      {form && <NavBar form={form} userId={userId} route="" />}
       <div className="bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-xl mx-auto w-full">
         <div className="divide-y divide-gray-900/5">
           <h6 className="mb-1 max-w-xl mx-auto w-full bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-left font-medium tracking-tight text-transparent">

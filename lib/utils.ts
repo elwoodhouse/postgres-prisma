@@ -31,3 +31,12 @@ export const formQuestions = {
     summary: "Address:",
   },
 };
+
+export const navButtons = [
+  { label: "Step 1", route: "/form1", completeLookupFields: "residency_type" },
+  { label: "Step 2", route: "/form2", completeLookupFields: "residency_date" },
+  { label: "Step 3", route: "/form3", completeLookupFields: "residency_address" },
+  { label: "Summary", route: "", completeLookupFields: "all" },
+];
+
+export const navBarClassName = "py-2 px-4 text-black border-solid border-2 w-1/4 rounded-md ";

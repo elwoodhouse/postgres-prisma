@@ -1,8 +1,9 @@
 "use client";
 
-import { form } from "@/lib/utils";
+import { form, formStatus } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function FormResidencyDate(props: { userId: number; form: form }) {
   const { userId, form } = props;
@@ -50,10 +51,15 @@ export default function FormResidencyDate(props: { userId: number; form: form })
           onChange={onValueChange}
         />
       </div>
-      <div className="flex items-center justify-end space-x-4 max-w-xl mx-auto w-full py-4">
-        <button className="bg-sky-500 py-2 px-4 text-white rounded-full" type="submit">
-          Next
-        </button>
+      <div className="flex items-center justify-between space-x-4 max-w-xl mx-auto w-full py-4">
+        <Link href={`/${userId}`}>
+          <button className="bg-gray-900/10 py-2 px-4 text-black rounded-full">Cancel</button>
+        </Link>
+        {form.status === formStatus.in_progress && (
+          <button className="bg-sky-500 py-2 px-4 text-white rounded-full" type="submit">
+            Next
+          </button>
+        )}
       </div>
     </form>
   );
