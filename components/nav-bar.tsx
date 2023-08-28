@@ -15,7 +15,7 @@ export default function NavBar(props: { userId: number; form: form; route: strin
     return navButton;
   });
 
-  const onClick = (event: any, route: string) => {
+  const onClick = (route: string) => {
     router.push(`/${userId}/${form.id}${route}`);
   };
 
@@ -27,7 +27,7 @@ export default function NavBar(props: { userId: number; form: form; route: strin
           className={navBarClassName
             .concat(button.notCompleted ? "bg-gray-400/20 " : "bg-green-300 ")
             .concat(route === button.route ? "border-black" : "border-gray-400")}
-          onClick={event => onClick(event, button.route)}
+          onClick={() => onClick(button.route)}
           disabled={button.notCompleted}
         >
           {button.label}

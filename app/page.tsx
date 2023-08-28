@@ -6,7 +6,6 @@ export const preferredRegion = "home";
 export const dynamic = "force-dynamic";
 
 export default function Home() {
-  // debugger;
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
       <Suspense fallback={<TablePlaceholder />}>

@@ -12,7 +12,7 @@ export default async function Page(props: { params: { userId: string; summary: s
       id: formId,
     },
   });
-  const isFormComplete = form?.residency_type && form?.residency_date && form.residency_address;
+  const isFormComplete = form?.residency_type && form?.residency_date && form?.residency_address;
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
       {form && <NavBar form={form} userId={userId} route="" />}

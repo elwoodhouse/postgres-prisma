@@ -31,7 +31,7 @@ export default function FormResidencyType(props: { userId: number; form: form })
         }
       };
 
-      postData().then(data => {
+      postData().then(() => {
         router.push(`/${userId}/${form.id}/form2`);
       });
     } catch (error) {

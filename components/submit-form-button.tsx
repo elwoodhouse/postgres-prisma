@@ -1,6 +1,6 @@
 "use client";
 
-import { form, formStatus } from "@/lib/utils";
+import { formStatus } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 export default function SubmitFormButton(props: { userId: number; formId: number }) {
@@ -19,7 +19,7 @@ export default function SubmitFormButton(props: { userId: number; formId: number
         return response.json();
       };
 
-      postData().then(data => {
+      postData().then(() => {
         router.push(`/${userId}`);
       });
     } catch (error) {
