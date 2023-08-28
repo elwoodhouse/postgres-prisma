@@ -46,7 +46,14 @@ export default function FormResidencyType(props: { userId: number; form: form })
           {Object.entries(formQuestions.residencyType.options).map(([key, value]) => (
             <div key={key} className="radio w-[fit-content]">
               <label>
-                <input className="mr-2" type="radio" value={key} checked={residencyType === key} onChange={onValueChange} />
+                <input
+                  disabled={form.status === formStatus.submitted}
+                  className="mr-2"
+                  type="radio"
+                  value={key}
+                  checked={residencyType === key}
+                  onChange={onValueChange}
+                />
                 {value}
               </label>
             </div>

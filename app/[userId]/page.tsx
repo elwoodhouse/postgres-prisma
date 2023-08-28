@@ -30,14 +30,14 @@ export default async function Page(props: { params: { userId: string } }) {
             <table className="w-full">
               <thead className="border-b-2 border-gray-900/10">
                 <tr>
-                  <th className="w-1/3">Form ID</th>
+                  <th className="w-1/3 pl-2">Form ID</th>
                   <th className="w-1/3">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {user.forms.map(form => (
                   <tr key={form.id}>
-                    <td className="border-b-2 border-gray-900/5 py-2 w-1/3">{form.id}</td>
+                    <td className="border-b-2 border-gray-900/5 py-2 w-1/3 pl-2">{form.id}</td>
                     <td className="border-b-2 border-gray-900/5 py-2 w-1/3">{form.status}</td>
                     <td className="border-b-2 border-gray-900/5 py-2 w-1/3 text-end">
                       {form.status === formStatus.in_progress && (

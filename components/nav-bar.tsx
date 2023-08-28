@@ -24,7 +24,7 @@ export default function NavBar(props: { userId: number; form: form; route: strin
       {buttons.map(button => (
         <button
           key={button.label}
-          className={navBarClassName
+          className={"w-1/4 py-2 px-4 text-black border-solid border-2 rounded-md "
             .concat(button.notCompleted ? "bg-gray-400/20 " : "bg-green-300 ")
             .concat(route === button.route ? "border-black" : "border-gray-400")}
           onClick={() => onClick(button.route)}

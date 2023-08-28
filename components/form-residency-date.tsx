@@ -43,6 +43,7 @@ export default function FormResidencyDate(props: { userId: number; form: form })
     <form onSubmit={onUpdateForm}>
       <div className="flex justify-center">
         <input
+          disabled={form.status === formStatus.submitted}
           value={residencyDate.toISOString().split("T")[0]}
           className="p-2 border-2 border-solid border-black"
           type="date"

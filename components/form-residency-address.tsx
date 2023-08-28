@@ -42,6 +42,7 @@ export default function FormResidencyAddress(props: { userId: number; form: form
     <form onSubmit={onUpdateForm}>
       <div className="flex justify-center">
         <textarea
+          disabled={form.status === formStatus.submitted}
           value={residencyAddress}
           id="residency_address"
           name="residency_address"
