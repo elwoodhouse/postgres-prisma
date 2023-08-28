@@ -1,6 +1,6 @@
 "use client";
 
-import { form, navButtons, navBarClassName } from "@/lib/utils";
+import { form, navButtons } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 export default function NavBar(props: { userId: number; form: form; route: string }) {
